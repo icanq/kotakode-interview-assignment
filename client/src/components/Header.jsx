@@ -1,9 +1,14 @@
 import React from "react";
+import StyledHeader from "../styled/StyledHeader";
 
-export const Header = () => {
+export const Header = ({ tasks }) => {
   return (
     <React.Fragment>
-      <h1>ToDo</h1>
+      {tasks.length ? (
+        <StyledHeader>Kamu punya {tasks.length} kerjaan🦾</StyledHeader>
+      ) : (
+        <StyledHeader>Kamu gapunya kerjaan👀</StyledHeader>
+      )}
     </React.Fragment>
   );
 };

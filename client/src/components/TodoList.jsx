@@ -1,21 +1,29 @@
 import React from "react";
+import {
+  StyledDeleteButton,
+  StyledHeader,
+  StyledList,
+  StyledSpan,
+} from "../styled";
 
 export default function TodoList({ tasks, deleteTask }) {
   if (!tasks || tasks.length === 0) {
     return (
-      <div>
-        <h4>tambah kegiatanmu hari ini!</h4>
-      </div>
+      <React.Fragment>
+        <StyledHeader>tambah kegiatanmu hari ini!</StyledHeader>
+      </React.Fragment>
     );
   }
   return (
-    <div>
+    <React.Fragment>
       {tasks.map((task, idx) => (
-        <li key={idx} data-testid="tasks">
-          <span data-testid="task">{task}</span>
-          <button onClick={() => deleteTask(task)}>x</button>
-        </li>
+        <StyledList key={idx} data-testid="tasks">
+          <StyledSpan data-testid="task">{task}</StyledSpan>
+          <StyledDeleteButton onClick={() => deleteTask(task)}>
+            x
+          </StyledDeleteButton>
+        </StyledList>
       ))}
-    </div>
+    </React.Fragment>
   );
 }
