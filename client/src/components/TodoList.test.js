@@ -35,4 +35,18 @@ describe("Renders Todo List Correctly", () => {
     const linkElement = screen.getByText(addTask);
     expect(linkElement).toBeInTheDocument();
   });
+
+  test("should success in deleting task", () => {
+    const { getTodo } = renderTodo();
+
+    const masakIkan = "masak ikan";
+
+    const deleteMasak = getTodo().find(
+      (task) => task.name === masakIkan
+    ).deleteButton;
+
+    fireEvent.click(deleteMasak);
+
+    expect(getTodo().find((task) => task.name === masakIkan)).not.toBeTruthy();
+  });
 });
