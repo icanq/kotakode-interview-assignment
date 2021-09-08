@@ -15,6 +15,10 @@ function App() {
     setNewTask("");
   };
 
+  const deleteTask = (task) => {
+    setTasks((prev) => prev.filter((e) => e !== task));
+  };
+
   return (
     <div className="App">
       <Header />
@@ -24,7 +28,7 @@ function App() {
         newTask={newTask}
         setNewTask={setNewTask}
       />
-      <TodoList tasks={tasks} />
+      <TodoList deleteTask={deleteTask} tasks={tasks} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TodoList({ tasks }) {
+export default function TodoList({ tasks, deleteTask }) {
   if (!tasks) {
     return (
       <div>
@@ -13,7 +13,7 @@ export default function TodoList({ tasks }) {
       {tasks.map((task, idx) => (
         <li key={idx} data-testid="tasks">
           <span data-testid="task">{task}</span>
-          <button>x</button>
+          <button onClick={() => deleteTask(task)}>x</button>
         </li>
       ))}
     </div>
