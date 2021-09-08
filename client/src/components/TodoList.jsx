@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function TodoList({ tasks, deleteTask }) {
-  if (!tasks) {
+  if (!tasks || tasks.length === 0) {
     return (
       <div>
         <h4>tambah kegiatanmu hari ini!</h4>
